@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B6C58C187E8B984DB89902D /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399869B72E159B66F6E8ED86 /* SceneKit.framework */; };
+		43600C19ECA1AB0488798E60 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2580EEC2A4ACFF9D48B6C196 /* UniformTypeIdentifiers.framework */; };
+		49F148BA92BB98EF94987C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF4CC487126337E4E6810A06 /* Assets.xcassets */; };
+		4E2F023901D8AC002731ABC1 /* DSPhysicsEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0DE494ED6EA453A59C53C /* DSPhysicsEngineTests.m */; };
+		6CB47B46876BE5A357D813B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDA8F8DF175F45E9832D16 /* main.m */; };
+		6F0B286285F96178EAAD0AC5 /* DSLabeledSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF5C235EC93388BF97CE6BA /* DSLabeledSlider.m */; };
+		71974DB457CEBC23E9FB8598 /* DSResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7680CB665FEC30ED213E5BD /* DSResultsViewController.m */; };
+		74B6CF9F43533F04C03B7E15 /* DSControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B15ED9D348DFA03A22421 /* DSControlsViewController.m */; };
+		85CBEFBAD59FAF49B10201FA /* DSColorScience.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9F24AADC0FCAB42AFC747E /* DSColorScience.m */; };
+		8EFAA661D73FD95494E466C0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3BBE52CA68C3CEC312D692 /* QuartzCore.framework */; };
+		921D8FA17254B221460B860B /* DSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9619921E2224077B8B5B1EB5 /* DSTheme.m */; };
+		988BE1966DDFDF80F01442C4 /* DSPhysicsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CB36EBB2E292466283F47 /* DSPhysicsEngine.m */; };
+		D637801B5DC3FD3B1DFE179D /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A84CDB37D7C518DE79CCC6DF /* DSAppDelegate.m */; };
+		DB016C9FEB702D099F1C5D82 /* DSSceneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088CBC40F2ED287D77E2D4F4 /* DSSceneController.m */; };
+		E421253C8F9ED47A3E66124D /* DSStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50320B3A67C01BD7474556E5 /* DSStageViewController.m */; };
+		E85C7E0AC38B6B294FD4C70F /* DSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6157E356D4A5717522CD66C3 /* DSMainViewController.m */; };
+		EBCFFD26D921F2ECC16DBFBE /* DSExperimentParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9096E656D1A4775BC5CA9101 /* DSExperimentParameters.m */; };
+		EC99E662B1F355C442AE519B /* DSPatternView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C43BA5B756D612770B132B /* DSPatternView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5291CFB842B76C6CDD37126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF146123B37153BB9A8E5639 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F52A1A9541C7BCEE9FB08A4;
+			remoteInfo = DoubleSlitLab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		088CBC40F2ED287D77E2D4F4 /* DSSceneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSSceneController.m; sourceTree = "<group>"; };
+		23FC00DA98A500C79671D9F4 /* DSTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSTheme.h; sourceTree = "<group>"; };
+		24BDA8F8DF175F45E9832D16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2580EEC2A4ACFF9D48B6C196 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		2939B9CE343037B2F45A86C5 /* DSPhysicsEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSPhysicsEngine.h; sourceTree = "<group>"; };
+		2B257D15814B654458CCC499 /* DSResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSResultsViewController.h; sourceTree = "<group>"; };
+		2C0CB36EBB2E292466283F47 /* DSPhysicsEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSPhysicsEngine.m; sourceTree = "<group>"; };
+		37CF3B269AD4882B3549C3EF /* DSStageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSStageViewController.h; sourceTree = "<group>"; };
+		399869B72E159B66F6E8ED86 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		3B6F05F5986B7FDA71670660 /* DSPatternView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSPatternView.h; sourceTree = "<group>"; };
+		4D0DA4C55A0B3D7F8619716F /* DSExperimentParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSExperimentParameters.h; sourceTree = "<group>"; };
+		50320B3A67C01BD7474556E5 /* DSStageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSStageViewController.m; sourceTree = "<group>"; };
+		580E154577A37A03CB0FF3CE /* DoubleSlitLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleSlitLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF5C235EC93388BF97CE6BA /* DSLabeledSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLabeledSlider.m; sourceTree = "<group>"; };
+		6157E356D4A5717522CD66C3 /* DSMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSMainViewController.m; sourceTree = "<group>"; };
+		67FD3D23CC4FB9835BE3C753 /* DSColorScience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSColorScience.h; sourceTree = "<group>"; };
+		72C0DE494ED6EA453A59C53C /* DSPhysicsEngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSPhysicsEngineTests.m; sourceTree = "<group>"; };
+		73B16E8D30C902327A5ED13F /* DSSceneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSSceneController.h; sourceTree = "<group>"; };
+		875281C2F112AFFB0A000924 /* DSMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSMainViewController.h; sourceTree = "<group>"; };
+		9096E656D1A4775BC5CA9101 /* DSExperimentParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSExperimentParameters.m; sourceTree = "<group>"; };
+		9619921E2224077B8B5B1EB5 /* DSTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSTheme.m; sourceTree = "<group>"; };
+		9D3BBE52CA68C3CEC312D692 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9F8ADC63F083861CA89F51DA /* DSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSAppDelegate.h; sourceTree = "<group>"; };
+		A84CDB37D7C518DE79CCC6DF /* DSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSAppDelegate.m; sourceTree = "<group>"; };
+		B2C43BA5B756D612770B132B /* DSPatternView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSPatternView.m; sourceTree = "<group>"; };
+		B7680CB665FEC30ED213E5BD /* DSResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSResultsViewController.m; sourceTree = "<group>"; };
+		C5B597B3B79D441587A8E6C4 /* DSControlsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSControlsViewController.h; sourceTree = "<group>"; };
+		CE4A013EAB25218358309387 /* DoubleSlitLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleSlitLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9F24AADC0FCAB42AFC747E /* DSColorScience.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSColorScience.m; sourceTree = "<group>"; };
+		DF4B15ED9D348DFA03A22421 /* DSControlsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSControlsViewController.m; sourceTree = "<group>"; };
+		DF4CC487126337E4E6810A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E61451B7B42AC6CCB97F0A54 /* DSLabeledSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSLabeledSlider.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9035140F42D615F12A49DE6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B6C58C187E8B984DB89902D /* SceneKit.framework in Frameworks */,
+				8EFAA661D73FD95494E466C0 /* QuartzCore.framework in Frameworks */,
+				43600C19ECA1AB0488798E60 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15B5E2FF08EBD9FC8BC2D3F3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E61451B7B42AC6CCB97F0A54 /* DSLabeledSlider.h */,
+				5BF5C235EC93388BF97CE6BA /* DSLabeledSlider.m */,
+				3B6F05F5986B7FDA71670660 /* DSPatternView.h */,
+				B2C43BA5B756D612770B132B /* DSPatternView.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		35F21D397C0269689CF1C2A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67FD3D23CC4FB9835BE3C753 /* DSColorScience.h */,
+				DE9F24AADC0FCAB42AFC747E /* DSColorScience.m */,
+				4D0DA4C55A0B3D7F8619716F /* DSExperimentParameters.h */,
+				9096E656D1A4775BC5CA9101 /* DSExperimentParameters.m */,
+				2939B9CE343037B2F45A86C5 /* DSPhysicsEngine.h */,
+				2C0CB36EBB2E292466283F47 /* DSPhysicsEngine.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D3E07493B125A403BEC9B68 /* DoubleSlitLab */ = {
+			isa = PBXGroup;
+			children = (
+				24BDA8F8DF175F45E9832D16 /* main.m */,
+				CD907B915369466BCA93239C /* App */,
+				35F21D397C0269689CF1C2A5 /* Model */,
+				B0F133197E1E4A3328CA21C2 /* Resources */,
+				FF2D874E474F4148D8990B96 /* Scene */,
+				5EA574C9DC5B6FABD8B234CE /* UI */,
+			);
+			path = DoubleSlitLab;
+			sourceTree = "<group>";
+		};
+		518A9F6D9C56F2C5C3917FF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D3BBE52CA68C3CEC312D692 /* QuartzCore.framework */,
+				399869B72E159B66F6E8ED86 /* SceneKit.framework */,
+				2580EEC2A4ACFF9D48B6C196 /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EA574C9DC5B6FABD8B234CE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C5B597B3B79D441587A8E6C4 /* DSControlsViewController.h */,
+				DF4B15ED9D348DFA03A22421 /* DSControlsViewController.m */,
+				875281C2F112AFFB0A000924 /* DSMainViewController.h */,
+				6157E356D4A5717522CD66C3 /* DSMainViewController.m */,
+				2B257D15814B654458CCC499 /* DSResultsViewController.h */,
+				B7680CB665FEC30ED213E5BD /* DSResultsViewController.m */,
+				37CF3B269AD4882B3549C3EF /* DSStageViewController.h */,
+				50320B3A67C01BD7474556E5 /* DSStageViewController.m */,
+				23FC00DA98A500C79671D9F4 /* DSTheme.h */,
+				9619921E2224077B8B5B1EB5 /* DSTheme.m */,
+				15B5E2FF08EBD9FC8BC2D3F3 /* Components */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9C8901EFABF375D9A4523D59 = {
+			isa = PBXGroup;
+			children = (
+				3D3E07493B125A403BEC9B68 /* DoubleSlitLab */,
+				CF93F8E7713C93B9EBD5CB15 /* DoubleSlitLabTests */,
+				518A9F6D9C56F2C5C3917FF1 /* Frameworks */,
+				D4015677ED7C8A1F89E75841 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0F133197E1E4A3328CA21C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CC487126337E4E6810A06 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD907B915369466BCA93239C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9F8ADC63F083861CA89F51DA /* DSAppDelegate.h */,
+				A84CDB37D7C518DE79CCC6DF /* DSAppDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CF93F8E7713C93B9EBD5CB15 /* DoubleSlitLabTests */ = {
+			isa = PBXGroup;
+			children = (
+				72C0DE494ED6EA453A59C53C /* DSPhysicsEngineTests.m */,
+			);
+			path = DoubleSlitLabTests;
+			sourceTree = "<group>";
+		};
+		D4015677ED7C8A1F89E75841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				580E154577A37A03CB0FF3CE /* DoubleSlitLab.app */,
+				CE4A013EAB25218358309387 /* DoubleSlitLabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF2D874E474F4148D8990B96 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				73B16E8D30C902327A5ED13F /* DSSceneController.h */,
+				088CBC40F2ED287D77E2D4F4 /* DSSceneController.m */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F52A1A9541C7BCEE9FB08A4 /* DoubleSlitLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D71041F1BA0AB70F7DC6F282 /* Build configuration list for PBXNativeTarget "DoubleSlitLab" */;
+			buildPhases = (
+				FF469751EA3A316370957AC1 /* Sources */,
+				BDF475A5CBE2616606499386 /* Resources */,
+				9035140F42D615F12A49DE6B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DoubleSlitLab;
+			packageProductDependencies = (
+			);
+			productName = DoubleSlitLab;
+			productReference = 580E154577A37A03CB0FF3CE /* DoubleSlitLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69D98BFB375EC7BF07026E93 /* DoubleSlitLabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65CDC281C3293BB73B1C2349 /* Build configuration list for PBXNativeTarget "DoubleSlitLabTests" */;
+			buildPhases = (
+				76E293A59F80756043863FAB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B38A7FBE024709A5CC3974EA /* PBXTargetDependency */,
+			);
+			name = DoubleSlitLabTests;
+			packageProductDependencies = (
+			);
+			productName = DoubleSlitLabTests;
+			productReference = CE4A013EAB25218358309387 /* DoubleSlitLabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF146123B37153BB9A8E5639 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					5F52A1A9541C7BCEE9FB08A4 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					69D98BFB375EC7BF07026E93 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = C225427E4BD7C72D03EDF28D /* Build configuration list for PBXProject "DoubleSlitLab" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9C8901EFABF375D9A4523D59;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D4015677ED7C8A1F89E75841 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F52A1A9541C7BCEE9FB08A4 /* DoubleSlitLab */,
+				69D98BFB375EC7BF07026E93 /* DoubleSlitLabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDF475A5CBE2616606499386 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F148BA92BB98EF94987C32 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		76E293A59F80756043863FAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2F023901D8AC002731ABC1 /* DSPhysicsEngineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF469751EA3A316370957AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D637801B5DC3FD3B1DFE179D /* DSAppDelegate.m in Sources */,
+				85CBEFBAD59FAF49B10201FA /* DSColorScience.m in Sources */,
+				74B6CF9F43533F04C03B7E15 /* DSControlsViewController.m in Sources */,
+				EBCFFD26D921F2ECC16DBFBE /* DSExperimentParameters.m in Sources */,
+				6F0B286285F96178EAAD0AC5 /* DSLabeledSlider.m in Sources */,
+				E85C7E0AC38B6B294FD4C70F /* DSMainViewController.m in Sources */,
+				EC99E662B1F355C442AE519B /* DSPatternView.m in Sources */,
+				988BE1966DDFDF80F01442C4 /* DSPhysicsEngine.m in Sources */,
+				71974DB457CEBC23E9FB8598 /* DSResultsViewController.m in Sources */,
+				DB016C9FEB702D099F1C5D82 /* DSSceneController.m in Sources */,
+				E421253C8F9ED47A3E66124D /* DSStageViewController.m in Sources */,
+				921D8FA17254B221460B860B /* DSTheme.m in Sources */,
+				6CB47B46876BE5A357D813B5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B38A7FBE024709A5CC3974EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F52A1A9541C7BCEE9FB08A4 /* DoubleSlitLab */;
+			targetProxy = 5291CFB842B76C6CDD37126F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		073E8F2F8D265E88B99DCABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
+			};
+			name = Debug;
+		};
+		3CCF4379FF4E989102DFF0D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DoubleSlitLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DoubleSlitLab;
+				PRODUCT_NAME = DoubleSlitLab;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5423D4EFF9566AEEF1853DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/DoubleSlitLab/Model";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DoubleSlitLabTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleSlitLab.app/Contents/MacOS/DoubleSlitLab";
+			};
+			name = Release;
+		};
+		9D53EC056D4BD59E0B1363DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DoubleSlitLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DoubleSlitLab;
+				PRODUCT_NAME = DoubleSlitLab;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B567AA700803E3F7A75CD564 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
+			};
+			name = Release;
+		};
+		E7A28E3CFA37C40126320BEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/DoubleSlitLab/Model";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DoubleSlitLabTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleSlitLab.app/Contents/MacOS/DoubleSlitLab";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65CDC281C3293BB73B1C2349 /* Build configuration list for PBXNativeTarget "DoubleSlitLabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A28E3CFA37C40126320BEB /* Debug */,
+				5423D4EFF9566AEEF1853DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C225427E4BD7C72D03EDF28D /* Build configuration list for PBXProject "DoubleSlitLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				073E8F2F8D265E88B99DCABB /* Debug */,
+				B567AA700803E3F7A75CD564 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D71041F1BA0AB70F7DC6F282 /* Build configuration list for PBXNativeTarget "DoubleSlitLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CCF4379FF4E989102DFF0D1 /* Debug */,
+				9D53EC056D4BD59E0B1363DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF146123B37153BB9A8E5639 /* Project object */;
+}
