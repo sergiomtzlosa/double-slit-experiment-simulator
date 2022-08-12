@@ -144,18 +144,6 @@ xcodebuild -project DoubleSlitLab.xcodeproj \
 
 ---
 
-## Keyboard Shortcuts
-
-| Shortcut | Action | Description |
-| :--- | :--- | :--- |
-| `⌘0` | **Reset Camera** | Re-centers and frames the 3D optical bench |
-| `⌘L` | **Toggle Labels** | Shows or hides 3D dimension and measurement labels |
-| `⌘R` | **Reset Experiment** | Restores all optical parameters to the default He–Ne setup |
-| `⌘S` | **Save Pattern…** | Exports the rendered 2D detector pattern as PNG |
-| `⌘I` | **Physics Model** | Displays educational reference on the Fraunhofer diffraction model |
-
----
-
 ## License
 
 This project is released under the MIT License.
