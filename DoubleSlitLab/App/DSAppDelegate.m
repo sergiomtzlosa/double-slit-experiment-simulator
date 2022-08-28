@@ -81,6 +81,17 @@
     NSMenu *fileMenu = [[NSMenu alloc] initWithTitle:@"File"];
     fileMenuItem.submenu = fileMenu;
     [fileMenu addItemWithTitle:@"Save Pattern…" action:@selector(savePattern:) keyEquivalent:@"s"];
+    [fileMenu addItem:[NSMenuItem separatorItem]];
+
+    NSMenuItem *exportConfiguration = [fileMenu addItemWithTitle:@"Export Lab Configuration…"
+                                                          action:@selector(exportLabConfiguration:)
+                                                   keyEquivalent:@"e"];
+    exportConfiguration.keyEquivalentModifierMask = NSEventModifierFlagCommand | NSEventModifierFlagShift;
+    [fileMenu addItemWithTitle:@"Load Lab Configuration…"
+                        action:@selector(loadLabConfiguration:)
+                 keyEquivalent:@"o"];
+
+    [fileMenu addItem:[NSMenuItem separatorItem]];
     [fileMenu addItemWithTitle:@"Reset Experiment" action:@selector(resetExperiment:) keyEquivalent:@""];
     [fileMenu addItem:[NSMenuItem separatorItem]];
     [fileMenu addItemWithTitle:@"Close Window" action:@selector(performClose:) keyEquivalent:@"w"];

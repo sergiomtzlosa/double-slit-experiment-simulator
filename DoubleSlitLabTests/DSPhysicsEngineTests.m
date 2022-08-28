@@ -3,6 +3,7 @@
 #import "DSPhysicsEngine.h"
 #import "DSColorScience.h"
 #import "DSExperimentParameters.h"
+#import "DSLabConfiguration.h"
 
 @interface DSPhysicsEngineTests : XCTestCase
 @end
@@ -239,6 +240,153 @@
         XCTAssertGreaterThan(result.metrics.xHalfRangeMm, 0.0);
         XCTAssertGreaterThan(result.metrics.yHalfRangeMm, 0.0);
     }
+}
+
+#pragma mark - Configuration
+
+- (void)testConfigurationRoundTripPreservesParameters {
+    DSExperimentParameters *original = [DSExperimentParameters defaultParameters];
+    [original applyLaserPreset:DSLaserPresetDPSS];
+    [original applyCustomWavelength:515.5];
+    original.spectralWidthNm = 0.08;
+    original.coherenceMode = DSCoherenceModeIncoherent;
+    original.laserDistanceM = 0.42;
+    original.slitCount = 5;
+    original.slitWidthUm = 55.0;
+    original.slitLengthMm = 3.25;
+    original.slitPitchUm = 310.0;
+    original.screenDistanceM = 2.4;
+    original.shutterOpen = NO;
+    [original clampToValidRange];
+
+    NSError *error = nil;
+    NSData *data = [DSLabConfiguration JSONDataForParameters:original error:&error];
+    XCTAssertNotNil(data, @"Export failed: %@", error);
+    DSExperimentParameters *loaded = [DSLabConfiguration parametersFromJSONData:data error:&error];
+    XCTAssertNotNil(loaded, @"Load failed: %@", error);
+
+    XCTAssertEqual(loaded.laserPreset, original.laserPreset);
+    XCTAssertEqual(loaded.coherenceMode, original.coherenceMode);
+    XCTAssertEqual(loaded.slitCount, original.slitCount);
+    XCTAssertEqual(loaded.shutterOpen, original.shutterOpen);
+    XCTAssertEqualWithAccuracy(loaded.wavelengthNm, original.wavelengthNm, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.spectralWidthNm, original.spectralWidthNm, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.laserDistanceM, original.laserDistanceM, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.slitWidthUm, original.slitWidthUm, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.slitLengthMm, original.slitLengthMm, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.slitPitchUm, original.slitPitchUm, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.screenDistanceM, original.screenDistanceM, 1e-9);
+
+    NSColor *expectedColor = [original.beamColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
+    NSColor *loadedColor = [loaded.beamColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
+    XCTAssertNotNil(expectedColor);
+    XCTAssertNotNil(loadedColor);
+    XCTAssertEqualWithAccuracy(loadedColor.redComponent, expectedColor.redComponent, 1e-9);
+    XCTAssertEqualWithAccuracy(loadedColor.greenComponent, expectedColor.greenComponent, 1e-9);
+    XCTAssertEqualWithAccuracy(loadedColor.blueComponent, expectedColor.blueComponent, 1e-9);
+}
+
+- (void)testConfigurationRoundTripWhiteLight {
+    DSExperimentParameters *original = [DSExperimentParameters defaultParameters];
+    [original applyLaserPreset:DSLaserPresetWhiteLight];
+    original.coherenceMode = DSCoherenceModeCoherent;
+    original.screenDistanceM = 3.1;
+    [original clampToValidRange];
+
+    NSError *error = nil;
+    NSData *data = [DSLabConfiguration JSONDataForParameters:original error:&error];
+    XCTAssertNotNil(data, @"Export failed: %@", error);
+    DSExperimentParameters *loaded = [DSLabConfiguration parametersFromJSONData:data error:&error];
+    XCTAssertNotNil(loaded, @"Load failed: %@", error);
+
+    XCTAssertTrue([loaded isWhiteLight]);
+    XCTAssertEqual(loaded.coherenceMode, DSCoherenceModeCoherent);
+    XCTAssertEqualWithAccuracy(loaded.spectralWidthNm, 300.0, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.screenDistanceM, 3.1, 1e-9);
+}
+
+- (void)testConfigurationUsesPresetDefaultsForOmittedFields {
+    NSData *data = [@"{\"format\":\"DoubleSlitLabConfiguration\",\"version\":1,"
+                    @"\"source\":{\"preset\":\"whiteLight\"}}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    DSExperimentParameters *loaded = [DSLabConfiguration parametersFromJSONData:data error:&error];
+    XCTAssertNotNil(loaded, @"Load failed: %@", error);
+    XCTAssertTrue([loaded isWhiteLight]);
+    XCTAssertEqual(loaded.coherenceMode, DSCoherenceModeIncoherent);
+    XCTAssertEqualWithAccuracy(loaded.wavelengthNm, 550.0, 1e-9);
+    XCTAssertEqualWithAccuracy(loaded.spectralWidthNm, 300.0, 1e-9);
+    XCTAssertNotNil(loaded.beamColor);
+}
+
+- (void)testConfigurationRejectsUnrelatedJSON {
+    NSData *data = [@"{\"hello\":\"world\"}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    XCTAssertNil([DSLabConfiguration parametersFromJSONData:data error:&error]);
+    XCTAssertEqualObjects(error.domain, DSLabConfigurationErrorDomain);
+    XCTAssertEqual(error.code, DSLabConfigurationErrorInvalidFormat);
+}
+
+- (void)testConfigurationRejectsMalformedJSON {
+    NSData *data = [@"this is not json" dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    XCTAssertNil([DSLabConfiguration parametersFromJSONData:data error:&error]);
+    XCTAssertEqualObjects(error.domain, DSLabConfigurationErrorDomain);
+    XCTAssertEqual(error.code, DSLabConfigurationErrorInvalidFormat);
+}
+
+- (void)testConfigurationRejectsUnsupportedVersion {
+    NSData *data = [DSLabConfiguration JSONDataForParameters:[DSExperimentParameters defaultParameters]
+                                                       error:NULL];
+    NSMutableDictionary *configuration = [[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL] mutableCopy];
+    configuration[@"version"] = @99;
+    NSData *futureData = [NSJSONSerialization dataWithJSONObject:configuration options:0 error:NULL];
+
+    NSError *error = nil;
+    XCTAssertNil([DSLabConfiguration parametersFromJSONData:futureData error:&error]);
+    XCTAssertEqualObjects(error.domain, DSLabConfigurationErrorDomain);
+    XCTAssertEqual(error.code, DSLabConfigurationErrorUnsupportedVersion);
+}
+
+- (void)testConfigurationRejectsInvalidValueTypes {
+    NSData *data = [DSLabConfiguration JSONDataForParameters:[DSExperimentParameters defaultParameters]
+                                                       error:NULL];
+    NSMutableDictionary *configuration = [[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL] mutableCopy];
+    NSMutableDictionary *source = [configuration[@"source"] mutableCopy];
+    source[@"wavelengthNm"] = @"green";
+    configuration[@"source"] = source;
+    NSData *invalidData = [NSJSONSerialization dataWithJSONObject:configuration options:0 error:NULL];
+
+    NSError *error = nil;
+    XCTAssertNil([DSLabConfiguration parametersFromJSONData:invalidData error:&error]);
+    XCTAssertEqualObjects(error.domain, DSLabConfigurationErrorDomain);
+    XCTAssertEqual(error.code, DSLabConfigurationErrorInvalidValue);
+}
+
+- (void)testConfigurationClampsOutOfRangeValues {
+    NSData *data = [DSLabConfiguration JSONDataForParameters:[DSExperimentParameters defaultParameters]
+                                                       error:NULL];
+    NSMutableDictionary *configuration = [[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL] mutableCopy];
+    NSMutableDictionary *source = [configuration[@"source"] mutableCopy];
+    NSMutableDictionary *aperture = [configuration[@"aperture"] mutableCopy];
+    NSMutableDictionary *bench = [configuration[@"bench"] mutableCopy];
+    source[@"wavelengthNm"] = @900.0;
+    aperture[@"slitCount"] = @99;
+    aperture[@"slitWidthUm"] = @500.0;
+    aperture[@"slitPitchUm"] = @10.0;
+    bench[@"screenDistanceM"] = @100.0;
+    configuration[@"source"] = source;
+    configuration[@"aperture"] = aperture;
+    configuration[@"bench"] = bench;
+    NSData *outOfRangeData = [NSJSONSerialization dataWithJSONObject:configuration options:0 error:NULL];
+
+    NSError *error = nil;
+    DSExperimentParameters *loaded = [DSLabConfiguration parametersFromJSONData:outOfRangeData error:&error];
+    XCTAssertNotNil(loaded, @"Load failed: %@", error);
+    XCTAssertEqual(loaded.slitCount, (NSUInteger)8);
+    XCTAssertLessThanOrEqual(loaded.wavelengthNm, 780.0);
+    XCTAssertLessThanOrEqual(loaded.slitWidthUm, 200.0);
+    XCTAssertGreaterThan(loaded.slitPitchUm, loaded.slitWidthUm);
+    XCTAssertLessThanOrEqual(loaded.screenDistanceM, 5.0);
 }
 
 @end

@@ -1,11 +1,13 @@
 #import "DSMainViewController.h"
 #import "DSExperimentParameters.h"
+#import "DSLabConfiguration.h"
 #import "DSPhysicsEngine.h"
 #import "DSControlsViewController.h"
 #import "DSStageViewController.h"
 #import "DSResultsViewController.h"
 #import "DSTheme.h"
 #import <QuartzCore/QuartzCore.h>
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 @interface DSMainViewController ()
 @property (nonatomic, strong) DSExperimentParameters *parameters;
@@ -61,6 +63,14 @@
         _controlsViewController.onParametersChanged = ^{
             __strong typeof(weakSelf) self = weakSelf;
             [self parametersChanged];
+        };
+        _controlsViewController.onExportConfiguration = ^{
+            __strong typeof(weakSelf) self = weakSelf;
+            [self exportLabConfiguration:nil];
+        };
+        _controlsViewController.onLoadConfiguration = ^{
+            __strong typeof(weakSelf) self = weakSelf;
+            [self loadLabConfiguration:nil];
         };
     }
     return self;
@@ -190,6 +200,84 @@
 
 - (IBAction)savePattern:(id)sender {
     [self.resultsViewController savePattern:sender];
+}
+
+- (IBAction)exportLabConfiguration:(id)sender {
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    panel.title = @"Export Lab Configuration";
+    panel.nameFieldStringValue = @"double-slit-lab.json";
+    panel.allowedContentTypes = @[UTTypeJSON];
+    panel.canCreateDirectories = YES;
+    panel.extensionHidden = NO;
+
+    NSWindow *window = self.view.window;
+    void (^completion)(NSModalResponse) = ^(NSModalResponse response) {
+        if (response != NSModalResponseOK || !panel.URL) {
+            return;
+        }
+        NSError *error = nil;
+        NSData *data = [DSLabConfiguration JSONDataForParameters:self.parameters error:&error];
+        if (!data) {
+            [self presentConfigurationError:@"Could not export the lab configuration" error:error];
+            return;
+        }
+        if (![data writeToURL:panel.URL options:NSDataWritingAtomic error:&error]) {
+            [self presentConfigurationError:@"Could not write the lab configuration" error:error];
+        }
+    };
+    if (window) {
+        [panel beginSheetModalForWindow:window completionHandler:completion];
+    } else {
+        completion([panel runModal]);
+    }
+}
+
+- (IBAction)loadLabConfiguration:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.title = @"Load Lab Configuration";
+    panel.allowedContentTypes = @[UTTypeJSON];
+    panel.allowsMultipleSelection = NO;
+    panel.canChooseDirectories = NO;
+    panel.canChooseFiles = YES;
+    panel.resolvesAliases = YES;
+
+    NSWindow *window = self.view.window;
+    void (^completion)(NSModalResponse) = ^(NSModalResponse response) {
+        if (response != NSModalResponseOK || !panel.URL) {
+            return;
+        }
+        NSError *error = nil;
+        NSData *data = [NSData dataWithContentsOfURL:panel.URL
+                                             options:NSDataReadingMappedIfSafe
+                                               error:&error];
+        DSExperimentParameters *loaded = data ? [DSLabConfiguration parametersFromJSONData:data error:&error] : nil;
+        if (!loaded) {
+            [self presentConfigurationError:@"Could not load the lab configuration" error:error];
+            return;
+        }
+        [self.parameters copySettingsFromParameters:loaded];
+        [self applyCurrentState];
+        [self scheduleRender];
+    };
+    if (window) {
+        [panel beginSheetModalForWindow:window completionHandler:completion];
+    } else {
+        completion([panel runModal]);
+    }
+}
+
+- (void)presentConfigurationError:(NSString *)message error:(NSError *)error {
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = message;
+    alert.informativeText = error.localizedDescription ?: @"Unknown error.";
+    alert.alertStyle = NSAlertStyleWarning;
+    [alert addButtonWithTitle:@"OK"];
+    NSWindow *window = self.view.window;
+    if (window) {
+        [alert beginSheetModalForWindow:window completionHandler:nil];
+    } else {
+        [alert runModal];
+    }
 }
 
 - (IBAction)resetExperiment:(id)sender {

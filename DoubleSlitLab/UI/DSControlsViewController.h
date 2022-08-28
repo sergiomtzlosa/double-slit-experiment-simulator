@@ -8,6 +8,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) DSExperimentParameters *parameters;
 @property (nonatomic, copy, nullable) void (^onParametersChanged)(void);
+@property (nonatomic, copy, nullable) void (^onExportConfiguration)(void);
+@property (nonatomic, copy, nullable) void (^onLoadConfiguration)(void);
 - (void)syncWithParameters;
 - (void)resetExperiment;
 

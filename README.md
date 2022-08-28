@@ -44,6 +44,7 @@ Rendered with **SceneKit** for an interactive 3D optical bench and powered by a 
   - **Interference Visibility** ($V = \frac{I_{\max} - I_{\min}}{I_{\max} + I_{\min}}$)
   - **Coherence Length** ($L_c \approx \frac{\lambda^2}{\Delta\lambda}$)
 - **High-Resolution PNG Export**: Export current detector pattern images directly to disk.
+- **Lab Configuration Files**: Export the complete source, aperture, detector, and shutter state to a human-readable JSON file, then load it again to restore the bench (`⇧⌘E` / `⌘O`).
 
 ---
 
@@ -89,6 +90,7 @@ DoubleSlitLab/
 │   └── DSAppDelegate.{h,m}          # Application lifecycle and main menu setup
 ├── Model/
 │   ├── DSExperimentParameters.{h,m} # Experiment configuration, validation, presets
+│   ├── DSLabConfiguration.{h,m}     # JSON export/import of the complete bench state
 │   ├── DSColorScience.{h,m}         # CIE 1931 standard observer table, XYZ → sRGB
 │   └── DSPhysicsEngine.{h,m}        # Fraunhofer diffraction, metrics, spectral integration
 ├── Scene/
@@ -103,7 +105,7 @@ DoubleSlitLab/
 │       ├── DSLabeledSlider.{h,m}    # Parameter slider row component
 │       └── DSPatternView.{h,m}      # 2D detector card and intensity profile view
 DoubleSlitLabTests/
-└── DSPhysicsEngineTests.m           # 19 comprehensive unit tests for physics & colorimetry
+└── DSPhysicsEngineTests.m           # Unit tests for physics, colorimetry, and configuration files
 ```
 
 ---

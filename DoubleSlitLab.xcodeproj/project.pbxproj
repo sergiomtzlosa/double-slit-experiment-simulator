@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CF5D07D7A984E99EB721E3 /* DSLabConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E769D1C47FF8627C6BEA51AF /* DSLabConfiguration.m */; };
 		1B6C58C187E8B984DB89902D /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399869B72E159B66F6E8ED86 /* SceneKit.framework */; };
 		43600C19ECA1AB0488798E60 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2580EEC2A4ACFF9D48B6C196 /* UniformTypeIdentifiers.framework */; };
 		49F148BA92BB98EF94987C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF4CC487126337E4E6810A06 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		72C0DE494ED6EA453A59C53C /* DSPhysicsEngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSPhysicsEngineTests.m; sourceTree = "<group>"; };
 		73B16E8D30C902327A5ED13F /* DSSceneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSSceneController.h; sourceTree = "<group>"; };
 		875281C2F112AFFB0A000924 /* DSMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSMainViewController.h; sourceTree = "<group>"; };
+		8C834FAF05AA63FBE0B24703 /* DSLabConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSLabConfiguration.h; sourceTree = "<group>"; };
 		9096E656D1A4775BC5CA9101 /* DSExperimentParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSExperimentParameters.m; sourceTree = "<group>"; };
 		9619921E2224077B8B5B1EB5 /* DSTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSTheme.m; sourceTree = "<group>"; };
 		9D3BBE52CA68C3CEC312D692 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 		DF4B15ED9D348DFA03A22421 /* DSControlsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSControlsViewController.m; sourceTree = "<group>"; };
 		DF4CC487126337E4E6810A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E61451B7B42AC6CCB97F0A54 /* DSLabeledSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSLabeledSlider.h; sourceTree = "<group>"; };
+		E769D1C47FF8627C6BEA51AF /* DSLabConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLabConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				DE9F24AADC0FCAB42AFC747E /* DSColorScience.m */,
 				4D0DA4C55A0B3D7F8619716F /* DSExperimentParameters.h */,
 				9096E656D1A4775BC5CA9101 /* DSExperimentParameters.m */,
+				8C834FAF05AA63FBE0B24703 /* DSLabConfiguration.h */,
+				E769D1C47FF8627C6BEA51AF /* DSLabConfiguration.m */,
 				2939B9CE343037B2F45A86C5 /* DSPhysicsEngine.h */,
 				2C0CB36EBB2E292466283F47 /* DSPhysicsEngine.m */,
 			);
@@ -311,6 +316,7 @@
 				85CBEFBAD59FAF49B10201FA /* DSColorScience.m in Sources */,
 				74B6CF9F43533F04C03B7E15 /* DSControlsViewController.m in Sources */,
 				EBCFFD26D921F2ECC16DBFBE /* DSExperimentParameters.m in Sources */,
+				03CF5D07D7A984E99EB721E3 /* DSLabConfiguration.m in Sources */,
 				6F0B286285F96178EAAD0AC5 /* DSLabeledSlider.m in Sources */,
 				E85C7E0AC38B6B294FD4C70F /* DSMainViewController.m in Sources */,
 				EC99E662B1F355C442AE519B /* DSPatternView.m in Sources */,

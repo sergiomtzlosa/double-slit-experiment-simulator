@@ -117,6 +117,25 @@ static double DSClampDouble(double value, double low, double high) {
     [self clampToValidRange];
 }
 
+- (void)copySettingsFromParameters:(DSExperimentParameters *)parameters {
+    if (!parameters || parameters == self) {
+        return;
+    }
+    self.laserPreset = parameters.laserPreset;
+    self.coherenceMode = parameters.coherenceMode;
+    self.wavelengthNm = parameters.wavelengthNm;
+    self.spectralWidthNm = parameters.spectralWidthNm;
+    self.laserDistanceM = parameters.laserDistanceM;
+    self.slitCount = parameters.slitCount;
+    self.slitWidthUm = parameters.slitWidthUm;
+    self.slitLengthMm = parameters.slitLengthMm;
+    self.slitPitchUm = parameters.slitPitchUm;
+    self.screenDistanceM = parameters.screenDistanceM;
+    self.shutterOpen = parameters.shutterOpen;
+    self.beamColor = parameters.beamColor;
+    [self clampToValidRange];
+}
+
 - (void)clampToValidRange {
     if (self.laserPreset < DSLaserPresetHeliumNeon || self.laserPreset > DSLaserPresetCustom) {
         self.laserPreset = DSLaserPresetCustom;

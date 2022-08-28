@@ -116,6 +116,13 @@
         [self noteLabel:@"Far-field (Fraunhofer) scalar model. The 3D aperture is enlarged for visibility."]
     ]];
     [self addFullWidthSection:displaySection toStack:stack];
+    [stack addArrangedSubview:[self separator]];
+
+    NSStackView *configurationSection = [self sectionWithTitle:@"LAB CONFIGURATION" views:@[
+        [self configurationRow],
+        [self noteLabel:@"Export or load every source, aperture, detector, and shutter setting as JSON."]
+    ]];
+    [self addFullWidthSection:configurationSection toStack:stack];
 
     NSButton *resetButton = [NSButton buttonWithTitle:@"Reset All Settings"
                                                target:self
@@ -464,6 +471,37 @@
     return row;
 }
 
+- (NSView *)configurationRow {
+    NSButton *exportButton = [NSButton buttonWithTitle:@"Export…"
+                                                target:self
+                                                action:@selector(exportConfiguration:)];
+    exportButton.bezelStyle = NSBezelStyleRounded;
+    exportButton.controlSize = NSControlSizeRegular;
+    exportButton.translatesAutoresizingMaskIntoConstraints = NO;
+    exportButton.toolTip = @"Save the complete optical bench configuration as a JSON file.";
+    exportButton.accessibilityLabel = @"Export lab configuration";
+
+    NSButton *loadButton = [NSButton buttonWithTitle:@"Load…"
+                                              target:self
+                                              action:@selector(loadConfiguration:)];
+    loadButton.bezelStyle = NSBezelStyleRounded;
+    loadButton.controlSize = NSControlSizeRegular;
+    loadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    loadButton.toolTip = @"Restore a previously exported JSON configuration.";
+    loadButton.accessibilityLabel = @"Load lab configuration";
+
+    NSStackView *row = [[NSStackView alloc] init];
+    row.translatesAutoresizingMaskIntoConstraints = NO;
+    row.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    row.alignment = NSLayoutAttributeCenterY;
+    row.distribution = NSStackViewDistributionFillEqually;
+    row.spacing = 8.0;
+    [row addArrangedSubview:exportButton];
+    [row addArrangedSubview:loadButton];
+    [row.heightAnchor constraintGreaterThanOrEqualToConstant:28.0].active = YES;
+    return row;
+}
+
 - (NSTextField *)noteLabel:(NSString *)text {
     NSTextField *label = DSMakeLabel(text, [DSTheme uiFontOfSize:9.5 weight:NSFontWeightRegular], [DSTheme textTertiary]);
     label.maximumNumberOfLines = 3;
@@ -505,22 +543,21 @@
 }
 
 - (void)resetExperiment {
-    DSExperimentParameters *defaults = [DSExperimentParameters defaultParameters];
-    self.parameters.laserPreset = defaults.laserPreset;
-    self.parameters.coherenceMode = defaults.coherenceMode;
-    self.parameters.wavelengthNm = defaults.wavelengthNm;
-    self.parameters.spectralWidthNm = defaults.spectralWidthNm;
-    self.parameters.laserDistanceM = defaults.laserDistanceM;
-    self.parameters.slitCount = defaults.slitCount;
-    self.parameters.slitWidthUm = defaults.slitWidthUm;
-    self.parameters.slitLengthMm = defaults.slitLengthMm;
-    self.parameters.slitPitchUm = defaults.slitPitchUm;
-    self.parameters.screenDistanceM = defaults.screenDistanceM;
-    self.parameters.shutterOpen = YES;
-    self.parameters.beamColor = defaults.beamColor;
-    [self.parameters clampToValidRange];
+    [self.parameters copySettingsFromParameters:[DSExperimentParameters defaultParameters]];
     [self syncWithParameters];
     [self notifyChange];
+}
+
+- (void)exportConfiguration:(id)sender {
+    if (self.onExportConfiguration) {
+        self.onExportConfiguration();
+    }
+}
+
+- (void)loadConfiguration:(id)sender {
+    if (self.onLoadConfiguration) {
+        self.onLoadConfiguration();
+    }
 }
 
 - (void)syncWithParameters {

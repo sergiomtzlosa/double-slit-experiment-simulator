@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, DSLaserPreset) {
 - (void)applyLaserPreset:(DSLaserPreset)preset;
 - (void)applyCustomWavelength:(double)wavelengthNm;
 - (void)applyBeamColor:(NSColor *)color;
+- (void)copySettingsFromParameters:(DSExperimentParameters *)parameters;
 - (void)clampToValidRange;
 
 - (BOOL)isWhiteLight;
