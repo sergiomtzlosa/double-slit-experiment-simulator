@@ -1,0 +1,27 @@
+{
+  "aperture" : {
+    "slitCount" : 4,
+    "slitLengthMm" : 4,
+    "slitPitchUm" : 71.599297078736001,
+    "slitWidthUm" : 6.8056951444299996
+  },
+  "bench" : {
+    "laserDistanceM" : 1.4289921875,
+    "screenDistanceM" : 1.1100439716220001,
+    "shutterOpen" : true
+  },
+  "format" : "DoubleSlitLabConfiguration",
+  "source" : {
+    "beamColor" : {
+      "alpha" : 1,
+      "blue" : 1,
+      "green" : 0,
+      "red" : 0.44092320880500002
+    },
+    "coherence" : "coherent",
+    "preset" : "violetDiode",
+    "spectralWidthNm" : 0.5,
+    "wavelengthNm" : 405
+  },
+  "version" : 1
+}
